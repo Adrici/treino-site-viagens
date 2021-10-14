@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.net.URI;
 
 @RestController
-@RequestMapping("/paises")
+@RequestMapping("/pais")
 public class PaisController {
 
 

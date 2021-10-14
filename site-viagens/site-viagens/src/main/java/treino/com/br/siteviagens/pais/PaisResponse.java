@@ -12,6 +12,9 @@ public class PaisResponse {
         this.nome = nome;
     }
 
+    public PaisResponse(Pais pais) {
+    }
+
     public Long getId() {
         return id;
     }
