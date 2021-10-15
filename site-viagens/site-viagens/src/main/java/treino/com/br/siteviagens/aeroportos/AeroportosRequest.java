@@ -15,8 +15,6 @@ public class AeroportosRequest {
     @NotBlank
     private String nomeAeroporto;
 
-    @NotBlank
-    @ManyToOne
     private Pais pais;
 
     public AeroportosRequest(String nomeAeroporto, Pais pais) {

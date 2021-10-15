@@ -13,9 +13,9 @@ public class CompanhiaResponse {
     private LocalDateTime instanteCriacao = LocalDateTime.now();
 
     public CompanhiaResponse(Companhia companhia) {
-        this.id = id;
-        this.nomeCompanhia = nomeCompanhia;
-        this.instanteCriacao = instanteCriacao;
+        this.id = companhia.getId();
+        this.nomeCompanhia = companhia.getNomeCompanhia();
+        this.instanteCriacao = companhia.getInstanteCriacao();
     }
 
 

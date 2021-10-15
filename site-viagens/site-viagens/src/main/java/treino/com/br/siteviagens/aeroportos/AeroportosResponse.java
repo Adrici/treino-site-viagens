@@ -7,8 +7,8 @@ public class AeroportosResponse {
     private String nomeAeroporto;
 
     public AeroportosResponse(Aeroportos aeroporto) {
-        this.idAeroporto = idAeroporto;
-        this.nomeAeroporto = nomeAeroporto;
+        this.idAeroporto = aeroporto.getIdAeroporto();
+        this.nomeAeroporto = aeroporto.getNomeAeroporto();
     }
 
     public Long getIdAeroporto() {

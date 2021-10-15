@@ -8,8 +8,8 @@ public class PaisResponse {
     private String nome;
 
     public PaisResponse(Pais pais) {
-        this.id = id;
-        this.nome = nome;
+        this.id = pais.getId();
+        this.nome = pais.getNome();
     }
 
 

@@ -13,21 +13,17 @@ public class CompanhiaRequest {
 
     @NotBlank
     @UniqueValue(domainClass = Companhia.class, fieldName = "nomeCompanhia")
-    private String nomeCompanhia; //deve ser unico UniqueValue
+    private String nomeCompanhia;
 
     @NotNull
     @CreationTimestamp
     private LocalDateTime instanteCriacao = LocalDateTime.now();
 
-    @NotBlank
-    @ManyToOne
-    private Pais pais;
-
 
     public CompanhiaRequest(String nomeCompanhia, LocalDateTime instanteCriacao, Pais pais) {
         this.nomeCompanhia = nomeCompanhia;
         this.instanteCriacao = instanteCriacao;
-        this.pais = pais;
+
     }
 
     public String getNomeCompanhia() {
@@ -36,10 +32,6 @@ public class CompanhiaRequest {
 
     public LocalDateTime getInstanteCriacao() {
         return instanteCriacao;
-    }
-
-    public Pais getPais() {
-        return pais;
     }
 
     public Companhia toModel() {

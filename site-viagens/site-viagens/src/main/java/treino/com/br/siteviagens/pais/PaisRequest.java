@@ -12,6 +12,10 @@ public class PaisRequest {
     @NotBlank
     private String nome;
 
+    public PaisRequest(){
+
+    }
+
     public PaisRequest(String nome) {
         this.nome = nome;
     }

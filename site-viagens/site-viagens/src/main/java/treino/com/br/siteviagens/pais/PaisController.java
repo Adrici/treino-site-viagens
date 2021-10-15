@@ -25,7 +25,11 @@ public class PaisController {
     public ResponseEntity<PaisResponse> cadastro(@RequestBody @Valid PaisRequest request) {
 
         Pais pais = request.toModel();
-        paisRepository.save(pais);
+        
+        //passa o objetio pais = paisRepository para o banco retornar o
+        // id para o front, se deixar sem o objeto ele rertornará somente
+        // os dados preenchidos na requisição (nesse caso, o nome)
+        pais = paisRepository.save(pais);
 
         PaisResponse response = new PaisResponse(pais);
 
