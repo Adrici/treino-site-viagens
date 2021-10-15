@@ -2,6 +2,7 @@ package treino.com.br.siteviagens.companhia;
 
 import org.hibernate.annotations.CreationTimestamp;
 import treino.com.br.siteviagens.pais.Pais;
+import treino.com.br.siteviagens.utils.UniqueValue;
 
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 public class CompanhiaRequest {
 
     @NotBlank
+    @UniqueValue(domainClass = Companhia.class, fieldName = "nomeCompanhia")
     private String nomeCompanhia; //deve ser unico UniqueValue
 
     @NotNull

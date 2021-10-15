@@ -1,6 +1,9 @@
 package treino.com.br.siteviagens.pais;
 
 
+import treino.com.br.siteviagens.companhia.Companhia;
+import treino.com.br.siteviagens.utils.UniqueValue;
+
 import javax.validation.constraints.NotBlank;
 
 // A Request éo lugar onde iremos fazer e retirar a menssagem que queremos
