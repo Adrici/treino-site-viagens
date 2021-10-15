@@ -12,14 +12,12 @@ public class CompanhiaResponse {
     private String nomeCompanhia; //deve ser unico UniqueValue
     private LocalDateTime instanteCriacao = LocalDateTime.now();
 
-    public CompanhiaResponse(Long id, String nomeCompanhia, LocalDateTime instanteCriacao) {
+    public CompanhiaResponse(Companhia companhia) {
         this.id = id;
         this.nomeCompanhia = nomeCompanhia;
         this.instanteCriacao = instanteCriacao;
     }
 
-    public CompanhiaResponse(Companhia companhia) {
-    }
 
     public Long getId() {
         return id;

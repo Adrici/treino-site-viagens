@@ -1,5 +1,6 @@
 package treino.com.br.siteviagens.companhia;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.CreationTimestamp;
 import treino.com.br.siteviagens.pais.Pais;
 

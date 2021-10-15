@@ -7,13 +7,12 @@ public class PaisResponse {
     private Long id;
     private String nome;
 
-    public PaisResponse(Long id, String nome) {
+    public PaisResponse(Pais pais) {
         this.id = id;
         this.nome = nome;
     }
 
-    public PaisResponse(Pais pais) {
-    }
+
 
     public Long getId() {
         return id;
