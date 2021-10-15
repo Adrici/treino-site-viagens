@@ -1,37 +1,38 @@
 package treino.com.br.siteviagens.aeroportos;
 
-import com.sun.istack.NotNull;
+import treino.com.br.siteviagens.companhia.Companhia;
 import treino.com.br.siteviagens.pais.Pais;
-import treino.com.br.siteviagens.utils.ExistsId;
+import treino.com.br.siteviagens.utils.UniqueValue;
 
-import javax.persistence.ManyToOne;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class AeroportosRequest {
-    @ExistsId(domainClass= Aeroportos.class,fieldName="id")
-    private Long idAeroporto;
-
     @NotBlank
+    @UniqueValue(domainClass = Companhia.class, fieldName = "nomeAeroporto")
     private String nomeAeroporto;
 
-    private Pais pais;
+    @NotNull
+    private Long idPais;
 
-    public AeroportosRequest(String nomeAeroporto, Pais pais) {
+    public AeroportosRequest( String nomeAeroporto, Long idPais) {
         this.nomeAeroporto = nomeAeroporto;
-        this.pais = pais;
+        this.idPais = idPais;
     }
+
 
     public String getNomeAeroporto() {
         return nomeAeroporto;
     }
 
-    public Pais getPais() {
-        return pais;
+    public Long getIdPais() {
+        return idPais;
+    }
+
+    public Aeroporto toModel(Pais pais){
+
+        return new Aeroporto(pais,nomeAeroporto);
     }
 
 
-    public Aeroportos toModel() {
-        return new Aeroportos(pais,nomeAeroporto);
-    }
 }

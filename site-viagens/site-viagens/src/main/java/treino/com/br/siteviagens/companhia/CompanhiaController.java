@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import treino.com.br.siteviagens.pais.Pais;
 import treino.com.br.siteviagens.pais.PaisRepository;
-import treino.com.br.siteviagens.pais.PaisRequest;
-import treino.com.br.siteviagens.pais.PaisResponse;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -18,26 +16,29 @@ import java.net.URI;
 
 
 @RestController
-@RequestMapping("/companhia")
+@RequestMapping("/companhias")
 public class CompanhiaController {
 
     @Autowired
     private CompanhiaRepository companhiaRepository;
 
+    @Autowired
+    private PaisRepository paisRepository;
+
+
     @PostMapping
     @Transactional
     public ResponseEntity<CompanhiaResponse> cadastro(@RequestBody @Valid CompanhiaRequest request) {
 
-        Companhia companhia = request.toModel();
+        Pais pais = paisRepository.getById(request.getIdPais());
+
+        Companhia companhia = request.toModel(pais);
         companhiaRepository.save(companhia);
-
-        CompanhiaResponse response = new CompanhiaResponse(companhia);
-
 
         URI toUri = ServletUriComponentsBuilder.fromCurrentRequest().
                 buildAndExpand("/{id}", companhia.getId()).toUri();
 
-        return ResponseEntity.created(toUri).body(response);
+        return ResponseEntity.created(toUri).body(new CompanhiaResponse(companhia));
 
     }
 }

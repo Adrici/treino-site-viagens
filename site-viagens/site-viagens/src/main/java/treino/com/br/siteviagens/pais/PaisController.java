@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.net.URI;
 
 @RestController
-@RequestMapping("/pais")
+@RequestMapping("/paises") //boa pratica: end point no plural e entidade no singular
 public class PaisController {
 
 
@@ -25,7 +25,7 @@ public class PaisController {
     public ResponseEntity<PaisResponse> cadastro(@RequestBody @Valid PaisRequest request) {
 
         Pais pais = request.toModel();
-        
+
         //passa o objetio pais = paisRepository para o banco retornar o
         // id para o front, se deixar sem o objeto ele rertornará somente
         // os dados preenchidos na requisição (nesse caso, o nome)

@@ -1,12 +1,10 @@
 package treino.com.br.siteviagens.aeroportos;
 
-import javax.validation.constraints.NotBlank;
-
 public class AeroportosResponse {
     private Long idAeroporto;
     private String nomeAeroporto;
 
-    public AeroportosResponse(Aeroportos aeroporto) {
+    public AeroportosResponse(Aeroporto aeroporto) {
         this.idAeroporto = aeroporto.getIdAeroporto();
         this.nomeAeroporto = aeroporto.getNomeAeroporto();
     }

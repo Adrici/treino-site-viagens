@@ -6,7 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Aeroportos {
+public class Aeroporto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,11 +15,17 @@ public class Aeroportos {
     @NotBlank
     private String nomeAeroporto;
 
-    @NotBlank
     @ManyToOne //duvida entre oneToOne
     private Pais pais;
 
-    public Aeroportos(Pais pais, String nomeAeroporto) {
+    @Deprecated
+    public Aeroporto(){
+
+    }
+
+    public Aeroporto(Pais pais, String nomeAeroporto) {
+        this.nomeAeroporto = nomeAeroporto;
+        this.pais = pais;
     }
 
     public Long getIdAeroporto() {

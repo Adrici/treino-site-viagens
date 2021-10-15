@@ -1,9 +1,7 @@
 package treino.com.br.siteviagens.companhia;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.CreationTimestamp;
 import treino.com.br.siteviagens.pais.Pais;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -19,11 +17,10 @@ public class Companhia {
     @NotBlank
     private String nomeCompanhia; //deve ser unico UniqueValue
 
-    @NotNull
+
     @CreationTimestamp
     private LocalDateTime instanteCriacao = LocalDateTime.now();
 
-    @NotBlank
     @ManyToOne
     private Pais pais;
 
@@ -31,16 +28,12 @@ public class Companhia {
     public Companhia() {
 
     }
-
-    public Companhia(String nomeCompanhia, LocalDateTime instanteCriacao, Pais pais) {
+//construtor com os dados da request
+    public Companhia(String nomeCompanhia,  Pais pais) {
         this.nomeCompanhia = nomeCompanhia;
-        this.instanteCriacao = instanteCriacao;
+
         this.pais = pais;
     }
-
-    public Companhia(String nomeCompanhia) {
-    }
-
 
     public Long getId() {
         return id;

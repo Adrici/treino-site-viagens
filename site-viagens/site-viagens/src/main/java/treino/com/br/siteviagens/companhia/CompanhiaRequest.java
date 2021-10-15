@@ -1,14 +1,11 @@
 package treino.com.br.siteviagens.companhia;
 
-import org.hibernate.annotations.CreationTimestamp;
 import treino.com.br.siteviagens.pais.Pais;
 import treino.com.br.siteviagens.utils.UniqueValue;
-
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 
+//quando criamoso a request temos que passar os dados que vamos preencher
 public class CompanhiaRequest {
 
     @NotBlank
@@ -16,13 +13,12 @@ public class CompanhiaRequest {
     private String nomeCompanhia;
 
     @NotNull
-    @CreationTimestamp
-    private LocalDateTime instanteCriacao = LocalDateTime.now();
+    private Long idPais;
 
 
-    public CompanhiaRequest(String nomeCompanhia, LocalDateTime instanteCriacao, Pais pais) {
+    public CompanhiaRequest(String nomeCompanhia, Long idPais) {
         this.nomeCompanhia = nomeCompanhia;
-        this.instanteCriacao = instanteCriacao;
+        this.idPais = idPais;
 
     }
 
@@ -30,11 +26,12 @@ public class CompanhiaRequest {
         return nomeCompanhia;
     }
 
-    public LocalDateTime getInstanteCriacao() {
-        return instanteCriacao;
+    public Long getIdPais() {
+        return idPais;
     }
 
-    public Companhia toModel() {
-        return new Companhia(this.nomeCompanhia);
+    public Companhia toModel(Pais pais){
+        return new Companhia(nomeCompanhia, pais);
     }
+
 }
