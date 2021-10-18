@@ -5,7 +5,7 @@ import treino.com.br.siteviagens.utils.UniqueValue;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-//quando criamoso a request temos que passar os dados que vamos preencher
+//quando criamos o a request temos que passar os dados que vamos preencher
 public class CompanhiaRequest {
 
     @NotBlank
@@ -30,7 +30,9 @@ public class CompanhiaRequest {
         return idPais;
     }
 
+
     public Companhia toModel(Pais pais){
+
         return new Companhia(nomeCompanhia, pais);
     }
 
