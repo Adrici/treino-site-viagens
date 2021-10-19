@@ -11,6 +11,9 @@ public class RotaRequest {
 
     private String nomeRota;
     @NotBlank
+
+    //validador para ver se a rota A é igual a rota B  - ver video alberto -
+    // Pode ser if controller => validador
     private String aeroportoOrigem;
     @NotBlank
     private String aeroportoDestino;
@@ -49,7 +52,13 @@ public class RotaRequest {
         return idRota;
     }
 
-    public Rota toModel() {
-        return new Rota ();
+   public Rota toModel() {
+
+      /* if (this.nomeRota == null) {
+           return new Rota(this.aeroportoOrigem + this.aeroportoDestino)
+       }
+       return new Rota(this.nomeRota)*/
+
+        return new Rota (this.nomeRota, this.aeroportoOrigem, this.aeroportoDestino,this.idRota);
     }
 }

@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import treino.com.br.siteviagens.companhia.Companhia;
 import treino.com.br.siteviagens.companhia.CompanhiaResponse;
-import treino.com.br.siteviagens.pais.Pais;
+
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -28,7 +27,7 @@ public class RotaController {
     @Transactional
     public ResponseEntity<RotaResponse> cadastro(@RequestBody @Valid RotaRequest request){
 
-        
+
         Rota rota = request.toModel(rota);
         rotaRepository.save(rota);
 

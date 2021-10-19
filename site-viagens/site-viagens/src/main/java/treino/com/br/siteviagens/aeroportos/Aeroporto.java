@@ -15,7 +15,7 @@ public class Aeroporto {
     @NotBlank
     private String nomeAeroporto;
 
-    @ManyToOne //duvida entre oneToOne
+    @ManyToOne
     private Pais pais;
 
     @Deprecated
