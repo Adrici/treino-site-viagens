@@ -40,6 +40,9 @@ public class Rota {
         this.duracaoMinutosRota = duracaoMinutosRota;
     }
 
+    public Rota(String s) {
+    }
+
     public Long getId() {
         return id;
     }

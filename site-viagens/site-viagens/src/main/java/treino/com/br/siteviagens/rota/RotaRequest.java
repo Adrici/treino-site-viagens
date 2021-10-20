@@ -2,6 +2,7 @@ package treino.com.br.siteviagens.rota;
 
 import treino.com.br.siteviagens.utils.ExistsId;
 
+import javax.persistence.EntityManager;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
@@ -52,13 +53,14 @@ public class RotaRequest {
         return idRota;
     }
 
-   public Rota toModel() {
+   public Rota toModel(EntityManager manager) {
+       Rota rota = new Rota(nomeRota);
 
-      /* if (this.nomeRota == null) {
-           return new Rota(this.aeroportoOrigem + this.aeroportoDestino)
+       if (this.nomeRota == null) {
+
+           return new Rota(this.aeroportoOrigem + this.aeroportoDestino);
        }
-       return new Rota(this.nomeRota)*/
+       return new Rota(this.nomeRota);
 
-        return new Rota (this.nomeRota, this.aeroportoOrigem, this.aeroportoDestino,this.idRota);
     }
 }
