@@ -27,7 +27,7 @@ public class RotaController {
     @Transactional
     public ResponseEntity<RotaResponse> cadastro(@RequestBody @Valid RotaRequest request){
 
-        Rota rota = request.toModel(manager);
+        Rota rota = request.toModel();
         rotaRepository.save(rota);
 
         URI toUri = ServletUriComponentsBuilder.fromCurrentRequest().

@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import java.math.BigDecimal;
 
 public class RotaRequest {
 
@@ -13,24 +14,21 @@ public class RotaRequest {
     private String nomeRota;
     @NotBlank
 
-    //validador para ver se a rota A é igual a rota B  - ver video alberto -
+    //validador para ver se a rota A é igual a rota B
     // Pode ser if controller => validador
     private String aeroportoOrigem;
     @NotBlank
     private String aeroportoDestino;
     @NotNull
     @Positive
-    private Double duracaoMinutosRota;
+    private BigDecimal duracaoMinutosRota;
 
-    @ExistsId(domainClass=  Rota.class,fieldName="idRota", message="Já existe!")
-    private Long idRota;
-
-    public RotaRequest(String nomeRota, String aeroportoOrigem, String aeroportoDestino, Double duracaoMinutosRota, Long idRota) {
+    public RotaRequest(String nomeRota, String aeroportoOrigem, String aeroportoDestino, BigDecimal duracaoMinutosRota) {
         this.nomeRota = nomeRota;
         this.aeroportoOrigem = aeroportoOrigem;
         this.aeroportoDestino = aeroportoDestino;
         this.duracaoMinutosRota = duracaoMinutosRota;
-        this.idRota = idRota;
+
     }
 
     public String getNomeRota() {
@@ -45,22 +43,19 @@ public class RotaRequest {
         return aeroportoDestino;
     }
 
-    public Double getDuracaoMinutosRota() {
+    public BigDecimal getDuracaoMinutosRota() {
         return duracaoMinutosRota;
     }
 
-    public Long getIdRota() {
-        return idRota;
-    }
 
-   public Rota toModel(EntityManager manager) {
-       Rota rota = new Rota(nomeRota);
+   public Rota toModel() {
 
-       if (this.nomeRota == null) {
+       if (this.nomeRota == null || this.nomeRota.isEmpty()) {
 
-           return new Rota(this.aeroportoOrigem + this.aeroportoDestino);
+           return new Rota(this.aeroportoOrigem + this.aeroportoDestino,
+                   this.aeroportoOrigem,this.aeroportoDestino,this.duracaoMinutosRota);
        }
-       return new Rota(this.nomeRota);
+       return new Rota(this.nomeRota, this.aeroportoOrigem,this.aeroportoDestino,this.duracaoMinutosRota);
 
     }
 }

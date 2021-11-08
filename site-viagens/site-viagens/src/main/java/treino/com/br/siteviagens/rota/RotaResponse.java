@@ -1,12 +1,15 @@
 package treino.com.br.siteviagens.rota;
 
+import java.math.BigDecimal;
+import java.util.function.BiConsumer;
+
 public class RotaResponse {
 
     private Long id;
     private String nomeRota;
     private String aeroportoOrigem;
     private String aeroportoDestino;
-    private Double duracaoMinutosRota;
+    private BigDecimal duracaoMinutosRota;
 
 
     public RotaResponse(Rota rota) {
@@ -15,6 +18,7 @@ public class RotaResponse {
         this.aeroportoOrigem = rota.getAeroportoOrigem();
         this.aeroportoDestino = rota.getAeroportoDestino();
         this.duracaoMinutosRota = rota.getDuracaoMinutosRota();
+
     }
 
     public Long getId() {
@@ -33,7 +37,7 @@ public class RotaResponse {
         return aeroportoDestino;
     }
 
-    public Double getDuracaoMinutosRota() {
+    public BigDecimal getDuracaoMinutosRota() {
         return duracaoMinutosRota;
     }
 }

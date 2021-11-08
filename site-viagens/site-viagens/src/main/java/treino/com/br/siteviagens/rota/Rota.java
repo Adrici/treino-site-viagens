@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import java.math.BigDecimal;
 
 @Entity
 public class Rota {
@@ -30,17 +31,17 @@ public class Rota {
 
     @NotNull
     @Positive
-    private Double duracaoMinutosRota;
+    private BigDecimal duracaoMinutosRota;
 
-    public Rota(Long id, String nomeRota, String aeroportoOrigem, String aeroportoDestino, Double duracaoMinutosRota) {
-        this.id = id;
+    public Rota(String nomeRota, String aeroportoOrigem, String aeroportoDestino, BigDecimal duracaoMinutosRota) {
+
         this.nomeRota = nomeRota;
         this.aeroportoOrigem = aeroportoOrigem;
         this.aeroportoDestino = aeroportoDestino;
         this.duracaoMinutosRota = duracaoMinutosRota;
     }
 
-    public Rota(String s) {
+    public Rota() {
     }
 
     public Long getId() {
@@ -59,7 +60,7 @@ public class Rota {
         return aeroportoDestino;
     }
 
-    public Double getDuracaoMinutosRota() {
+    public BigDecimal getDuracaoMinutosRota() {
         return duracaoMinutosRota;
     }
 }
