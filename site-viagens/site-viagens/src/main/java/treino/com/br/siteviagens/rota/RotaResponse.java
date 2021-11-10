@@ -1,7 +1,6 @@
 package treino.com.br.siteviagens.rota;
 
 import java.math.BigDecimal;
-import java.util.function.BiConsumer;
 
 public class RotaResponse {
 
